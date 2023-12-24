@@ -38,7 +38,7 @@ function Footer() {
               style={{ objectFit: "cover" }}
             />
             <p className="mt-2" style={{ direction: "ltr" }}>
-              (+216) 55 180 992
+              (+216) 50 031 190
             </p>
           </div>
           <div className="d-flex flex-column justify-content-center align-items-center">
@@ -49,7 +49,7 @@ function Footer() {
               width={60}
               style={{ objectFit: "cover" }}
             />
-            <p className="mt-2">info@email.com</p>
+            <p className="mt-2">ugte.tn@hotmail.com</p>
           </div>
         </div>
 
