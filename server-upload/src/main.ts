@@ -8,6 +8,7 @@ async function bootstrap() {
   app.setGlobalPrefix('/api/upload');
   app.useStaticAssets('upload', { prefix: '/upload' });
   await app.listen(5000);
+  
 }
 
 bootstrap();

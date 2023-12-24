@@ -12,7 +12,11 @@ import {
 const prisma = new PrismaClient();
 
 async function main() {
-  // create two dummy articles
+  // stop seeding if gouvernments exist
+  const gouvernments = await prisma.government.findMany();
+  if (gouvernments.length) return;
+  
+
   await prisma.government.createMany({
     data: tunisiaGovernorates.map((elem) => ({ nameFr: elem })),
   });
