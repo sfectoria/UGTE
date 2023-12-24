@@ -9,9 +9,30 @@ import { UniversitiesModule } from './universities/universities.module';
 import { UniversitiePartsModule } from './universitie-parts/universitie-parts.module';
 import { EducationLevelsModule } from './education-levels/education-levels.module';
 import { UniversityPartsModule } from './university-parts/university-parts.module';
+import { join } from 'path';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
-  imports: [PrismaModule, MembersModule, GovernmentsModule, GradesModule, UniversitiesModule, UniversitiePartsModule, EducationLevelsModule, UniversityPartsModule],
+  imports: [
+    PrismaModule,
+    MembersModule,
+    GovernmentsModule,
+    GradesModule,
+    UniversitiesModule,
+    UniversitiePartsModule,
+    EducationLevelsModule,
+    UniversityPartsModule,
+    ServeStaticModule.forRoot({
+      serveStaticOptions: {
+        maxAge: 604800, // one week
+        cacheControl: false,
+        etag: false,
+      },
+      rootPath: join(__dirname, '../../../front-end', 'build'),
+      // serveRoot: '/back-office',
+      // renderPath: '/back-office',
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

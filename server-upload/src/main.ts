@@ -5,9 +5,9 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors();
-  app.setGlobalPrefix('/api/upload');
   app.useStaticAssets('upload', { prefix: '/upload' });
   await app.listen(5000);
+
 }
 
 bootstrap();
