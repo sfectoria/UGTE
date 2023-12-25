@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { MembersService } from './members.service';
 import { CreateMemeberDto } from './dto/create-member.dto';
@@ -23,8 +24,8 @@ export class MembersController {
   }
 
   @Get()
-  findAll() {
-    return this.memebersService.findAll();
+  findAll(@Query() filters: any) {
+    return this.memebersService.findAll(filters);
   }
 
   @Get(':id')
