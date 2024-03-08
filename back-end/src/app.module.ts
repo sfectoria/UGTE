@@ -11,9 +11,16 @@ import { EducationLevelsModule } from './education-levels/education-levels.modul
 import { UniversityPartsModule } from './university-parts/university-parts.module';
 import { join } from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { MailModule } from './mail/mail.module';
+
 
 @Module({
   imports: [
+    UsersModule,
+    AuthModule,
+    MailModule,
     PrismaModule,
     MembersModule,
     GovernmentsModule,

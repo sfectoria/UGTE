@@ -7,11 +7,13 @@ import {
   Param,
   Delete,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { MembersService } from './members.service';
 import { CreateMemeberDto } from './dto/create-member.dto';
 import { UpdateMemeberDto } from './dto/update-member.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @ApiTags('members')
 @Controller('members')
@@ -23,6 +25,7 @@ export class MembersController {
     return this.memebersService.create(createMemeberDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   findAll(@Query() filters: any) {
     return this.memebersService.findAll(filters);

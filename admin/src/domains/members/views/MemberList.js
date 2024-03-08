@@ -13,9 +13,15 @@ function MemberList() {
 
   useEffect(() => {
     (async () => {
+      let token = JSON.parse(localStorage.getItem("token")).Authorization;
       const membersRes = await axios.get(
         `${process.env.REACT_APP_API_ENDPOINT}/members/`,
-        { params: formData }
+        {
+          params: formData,
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
       );
       setMembers(membersRes.data);
     })();
