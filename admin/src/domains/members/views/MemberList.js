@@ -129,7 +129,21 @@ function MemberList() {
           ))}
         </select>
       </div>
-      <DataGrid rows={members} columns={columns} getRowId={(r) => r.cin} />
+      <Box sx={{ height: 500, width: "100%" }}>
+        <DataGrid
+          rows={members}
+          columns={columns}
+          getRowId={(r) => r.cin}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 10,
+              },
+            },
+          }}
+          pageSizeOptions={[10]}
+        />
+      </Box>
     </div>
   );
 }

@@ -5,10 +5,10 @@ import Header from "../layouts/Header";
 
 function App() {
   return (
-    <div className="position-fixed w-100 h-100 d-flex">
+    <div className="">
       <Sidebar />
       <Header />
-      <div className="h-100 w-100" style={{ paddingLeft: 300, paddingTop: 70 }}>
+      <div className="" style={{ paddingLeft: 300, paddingTop: 70 }}>
         <div className="p-3">
           <Outlet />
         </div>
